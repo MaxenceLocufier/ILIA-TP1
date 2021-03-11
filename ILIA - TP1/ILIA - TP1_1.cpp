@@ -6,8 +6,9 @@
 using namespace std;
 
 int mode;
+int nn, nv;
 
-int tirer(int &nn, int &nv) {
+int tirer() {
   int boule;
   if (nn == 0) nv--;
   else if (nv == 0) nn--;
@@ -29,8 +30,6 @@ int main()
 {
   srand(time(NULL));
   system("color 0a");
-  int nn;
-  int nv;
 
   cout << "Mode de jeu? (0: manuel, 1: auto) ";
   cin >> mode;
@@ -47,8 +46,8 @@ int main()
   int boule2;
   while (nn + nv > 1) {
     cout << endl;
-    boule1 = tirer(nn, nv);
-    boule2 = tirer(nn, nv);
+    boule1 = tirer();
+    boule2 = tirer();
     if (boule1 == boule2) nn++; else nv++;
     cout << "Boule 1: " << (boule1 ? "Verte" : "Noire") << ", ";
     cout << "Boule 2: " << (boule2 ? "Verte" : "Noire") << ", ";
